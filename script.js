@@ -1,1 +1,1 @@
-console.log("Documentation Search Interface loaded");
+alert("Documentation Search Interface loaded");
