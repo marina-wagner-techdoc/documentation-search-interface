@@ -23,6 +23,17 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    color: var(--accent);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: var(--accent);
+    margin-top: 0;
+}
 .tagline {
     color: var(--accent);
     font-size: 1rem;
