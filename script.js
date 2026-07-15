@@ -2,7 +2,7 @@
 const searchInput = document.getElementById("search");
 const cards = document.querySelectorAll(".result-card");
 
-searchInput.addEventListener("keyup", function () {
+searchInput.addEventListener("keyup", () => {
 
     const searchTerm = searchInput.value.toLowerCase();
 
