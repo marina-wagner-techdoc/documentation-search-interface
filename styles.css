@@ -84,6 +84,7 @@ input {
     width: 200px;
     padding: 22px;
     font-weight: bold;
+    text-decoration: none;
 
     display: flex;
     align-items: center;
@@ -96,6 +97,7 @@ input {
     flex: 1;
     padding: 22px;
     text-align: left;
+    text-decoration: none;
 }
 
 input {
