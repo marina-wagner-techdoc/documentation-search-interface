@@ -65,29 +65,48 @@ input {
 }
 
 
+
 .result-card {
     display: flex;
     max-width: 900px;
     margin: 12px auto;
+    text-decoration: none;
+    color: inherit;
+}
+
+.result-card:hover {
+    opacity: 0.95;
 }
 
 .card-title {
     background-color: var(--accent);
     color: white;
     width: 200px;
-    padding: 25px;
+    padding: 22px;
+    font-weight: bold;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-    font-weight: bold;
 }
 
 .card-content {
     background-color: var(--light-grey);
-    padding: 25px;
     flex: 1;
+    padding: 22px;
     text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--accent);
+    box-sizing: border-box;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent);
 }
