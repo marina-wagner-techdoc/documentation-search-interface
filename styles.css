@@ -1,1 +1,15 @@
 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+h1 {
+    color: #3BB4B8;
+}
+
+input {
+    width: 400px;
+    padding: 10px;
+}
