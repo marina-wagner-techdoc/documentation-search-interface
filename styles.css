@@ -1,3 +1,10 @@
+
+:root {
+    --accent: #3BB4B8;
+    --light-grey: #F3F3F3;
+    --text: #333333;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
