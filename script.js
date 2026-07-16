@@ -85,14 +85,25 @@ const portfolioItems = [
 
 const searchInput = document.getElementById("search");
 const resultsContainer = document.getElementById("search-results");
+const resultsHeading = document.getElementById("results-heading");
+const portfolioAreas = document.getElementById("portfolio-areas");
 
 searchInput.addEventListener("keyup", () => {
     const searchTerm = searchInput.value.toLowerCase();
     
     resultsContainer.innerHTML = "";
     
-    if (searchTerm === "") {
-        return;
+
+if (searchTerm === "") {
+
+    resultsContainer.innerHTML = "";
+
+    resultsHeading.style.display = "none";
+    portfolioAreas.style.display = "block";
+
+    return;
+}
+
     }
     
     const matches = portfolioItems.filter(item => {
@@ -112,7 +123,21 @@ searchInput.addEventListener("keyup", () => {
         
         return titleMatch || descriptionMatch || keywordsMatch;
     });
+
+if (matches.length === 0) {
+
+    resultsHeading.style.display = "block";
+    portfolioAreas.style.display = "none";
+
+    resultsContainer.innerHTML =
+        "<p>No matching content found.</p>";
+
+    return;
+}
     
+resultsHeading.style.display = "block";
+portfolioAreas.style.display = "none";
+
     matches.forEach(item => {
         // Safe fallbacks
         const link = item.link || '#';
