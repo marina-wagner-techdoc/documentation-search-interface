@@ -103,8 +103,6 @@ if (searchTerm === "") {
 
     return;
 }
-
-    }
     
     const matches = portfolioItems.filter(item => {
         // Ensure the fields exist before calling toLowerCase()
