@@ -83,6 +83,7 @@ const portfolioItems = [
 
 ];
 
+
 const searchInput = document.getElementById("search");
 const resultsContainer = document.getElementById("search-results");
 
@@ -102,23 +103,21 @@ searchInput.addEventListener("keyup", () => {
         item.keywords.toLowerCase().includes(searchTerm)
     );
 
+    matches.forEach(item => {
 
-matches.forEach(item => {
+        resultsContainer.innerHTML += `
+            ${item.link}
+                <div class="card-title">
+                    ${item.category}
+                </div>
 
-    resultsContainer.innerHTML += `
-        <a
-            class="result-card"
-            href="${            ${item.category}
-            </div>
+                <div class="card-content">
+                    <strong>${item.title}</strong><br>
+                    ${item.description}
+                </div>
+            </a>
+        `;
 
-            <div class="card-content">
-                <strong>${item.title}</strong><br>
-                ${item.description}
-            </div>
-
-        </a>
-    `;
-
-});
+    });
 
 });
