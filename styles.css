@@ -119,7 +119,8 @@ input:focus {
 }
 
 #results-heading {
-    display: none;
+    text-align: center;
+    margin-top: 40px;
 }
 
 #search-results .result-card {
@@ -132,4 +133,10 @@ input:focus {
 
 #search-results .result-card:hover {
     opacity: 0.95;
+}
+
+.intro {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
