@@ -121,3 +121,15 @@ input:focus {
 #results-heading {
     display: none;
 }
+
+#search-results .result-card {
+    display: flex;
+    max-width: 900px;
+    margin: 12px auto;
+    text-decoration: none;
+    color: inherit;
+}
+
+#search-results .result-card:hover {
+    opacity: 0.95;
+}
