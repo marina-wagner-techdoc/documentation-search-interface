@@ -112,3 +112,12 @@ input {
 input:focus {
     border-color: var(--accent);
 }
+
+#search-results {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+#results-heading {
+    display: none;
+}
