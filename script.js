@@ -87,38 +87,45 @@ const searchInput = document.getElementById("search");
 const resultsContainer = document.getElementById("search-results");
 
 searchInput.addEventListener("keyup", () => {
-
     const searchTerm = searchInput.value.toLowerCase();
-
+    
     resultsContainer.innerHTML = "";
-
+    
     if (searchTerm === "") {
         return;
     }
-
-    const matches = portfolioItems.filter(item =>
-        item.title.toLowerCase().includes(searchTerm) ||
-        item.description.toLowerCase().includes(searchTerm) ||
-        item.keywords.toLowerCase().includes(searchTerm)
-    );
-
+    
+    const matches = portfolioItems.filter(item => {
+        // Sicherstellen, dass die Felder existieren, bevor wir toLowerCase() aufrufen
+        const titleMatch = item.title ? item.title.toLowerCase().includes(searchTerm) : false;
+        const descriptionMatch = item.description ? item.description.toLowerCase().includes(searchTerm) : false;
+        
+        // Keywords sicher handhaben (falls Array, in String umwandeln; falls String, direkt nutzen)
+        let keywordsMatch = false;
+        if (item.keywords) {
+            if (Array.isArray(item.keywords)) {
+                keywordsMatch = item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm));
+            } else {
+                keywordsMatch = item.keywords.toLowerCase().includes(searchTerm);
+            }
+        }
+        
+        return titleMatch || descriptionMatch || keywordsMatch;
+    });
+    
     matches.forEach(item => {
-
+        // Fehler behoben: Gültiges <a> Tag mit href Attribut hinzugefügt
         resultsContainer.innerHTML += `
-            ${item.link}
-
+            <a href="${item.link || '#'}" class="card-link">
                 <div class="card-title">
-                    ${item.category}
+                    ${item.category || ''}
                 </div>
-
+                
                 <div class="card-content">
-                    <strong>${item.title}</strong><br>
-                    ${item.description}
+                    <strong>${item.title || ''}</strong><br>
+                    ${item.description || ''}
                 </div>
-
             </a>
         `;
-
     });
-
 });
