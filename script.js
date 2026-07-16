@@ -107,10 +107,8 @@ matches.forEach(item => {
 
     resultsContainer.innerHTML += `
         <a
-        }
-
-            <div class="card-title">
-                ${item.category}
+            class="result-card"
+            href="${            ${item.category}
             </div>
 
             <div class="card-content">
