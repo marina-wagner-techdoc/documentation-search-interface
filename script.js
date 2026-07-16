@@ -22,7 +22,7 @@ const portfolioItems = [
         category: "UX Writing",
         description: "Examples of actionable and user-friendly error messages.",
         keywords: "error message ux writing microcopy",
-        link: "https://github.com/marina-wagner-techdoc/tree/main/ux-writing"
+        link: "https://github.com/marina-wagner-techdoc/technical-writing-portfolio/tree/main/ux-writing"
     },
 
     {
@@ -38,7 +38,45 @@ const portfolioItems = [
         category: "Compliance & Privacy",
         description: "Plain language privacy communication examples.",
         keywords: "privacy gdpr consent compliance",
-        link: "https://github.com/marina-wagner-techdoc/tree/main/compliance"
+        link: "https://github.com/marina-wagner-techdoc/technical-writing-portfolio/tree/main/compliance"
     }
 
 ];
+
+const searchInput = document.getElementById("search");
+const resultsContainer = document.getElementById("search-results");
+
+searchInput.addEventListener("keyup", () => {
+
+    const searchTerm = searchInput.value.toLowerCase();
+
+    resultsContainer.innerHTML = "";
+
+    if (searchTerm === "") {
+        return;
+    }
+
+    const matches = portfolioItems.filter(item =>
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm) ||
+        item.keywords.toLowerCase().includes(searchTerm)
+    );
+
+    matches.forEach(item => {
+
+        resultsContainer.innerHTML += `
+            ${item.link}
+                <div class="card-title">
+                    ${item.category}
+                </div>
+
+                <div class="card-content">
+                    <strong>${item.title}</strong><br>
+                    ${item.description}
+                </div>
+            </a>
+        `;
+
+    });
+
+});
