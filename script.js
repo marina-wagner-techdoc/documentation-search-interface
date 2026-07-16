@@ -83,7 +83,6 @@ const portfolioItems = [
 
 ];
 
-
 const searchInput = document.getElementById("search");
 const resultsContainer = document.getElementById("search-results");
 
@@ -107,6 +106,7 @@ searchInput.addEventListener("keyup", () => {
 
         resultsContainer.innerHTML += `
             ${item.link}
+
                 <div class="card-title">
                     ${item.category}
                 </div>
@@ -115,6 +115,7 @@ searchInput.addEventListener("keyup", () => {
                     <strong>${item.title}</strong><br>
                     ${item.description}
                 </div>
+
             </a>
         `;
 
