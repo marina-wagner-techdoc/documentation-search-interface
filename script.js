@@ -96,11 +96,11 @@ searchInput.addEventListener("keyup", () => {
     }
     
     const matches = portfolioItems.filter(item => {
-        // Sicherstellen, dass die Felder existieren, bevor wir toLowerCase() aufrufen
+        // Ensure the fields exist before calling toLowerCase()
         const titleMatch = item.title ? item.title.toLowerCase().includes(searchTerm) : false;
         const descriptionMatch = item.description ? item.description.toLowerCase().includes(searchTerm) : false;
         
-        // Keywords sicher handhaben (falls Array, in String umwandeln; falls String, direkt nutzen)
+        // Handle keywords safely (check if array or string)
         let keywordsMatch = false;
         if (item.keywords) {
             if (Array.isArray(item.keywords)) {
@@ -114,16 +114,21 @@ searchInput.addEventListener("keyup", () => {
     });
     
     matches.forEach(item => {
-        // Fehler behoben: Gültiges <a> Tag mit href Attribut hinzugefügt
+        // Safe fallbacks
+        const link = item.link || '#';
+        const category = item.category || '';
+        const title = item.title || '';
+        const description = item.description || '';
+
+        // Clean HTML Template String (only backticks at the very start and end!)
         resultsContainer.innerHTML += `
-            <a href="${item.link || '#'}" class="card-link">
+            <a href="${link}" class="card-link">
                 <div class="card-title">
-                    ${item.category || ''}
+                    ${category}
                 </div>
-                
                 <div class="card-content">
-                    <strong>${item.title || ''}</strong><br>
-                    ${item.description || ''}
+                    <strong>${title}</strong><br>
+                    ${description}
                 </div>
             </a>
         `;
