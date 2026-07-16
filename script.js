@@ -93,19 +93,15 @@ searchInput.addEventListener("keyup", () => {
     
     resultsContainer.innerHTML = "";
     
-
-if (searchTerm === "") {
-
-    resultsContainer.innerHTML = "";
-
-    resultsHeading.style.display = "none";
-    portfolioAreas.style.display = "block";
-
-    return;
-}
+    if (searchTerm === "") {
+        resultsContainer.innerHTML = "";
+        resultsHeading.style.display = "none";
+        portfolioAreas.style.display = "block";
+        return;
+    }
     
     const matches = portfolioItems.filter(item => {
-        // Ensure the fields exist before calling toLowerCase()
+        // Ensure fields exist before calling toLowerCase()
         const titleMatch = item.title ? item.title.toLowerCase().includes(searchTerm) : false;
         const descriptionMatch = item.description ? item.description.toLowerCase().includes(searchTerm) : false;
         
@@ -122,19 +118,15 @@ if (searchTerm === "") {
         return titleMatch || descriptionMatch || keywordsMatch;
     });
 
-if (matches.length === 0) {
+    if (matches.length === 0) {
+        resultsHeading.style.display = "block";
+        portfolioAreas.style.display = "none";
+        resultsContainer.innerHTML = "<p>No matching content found.</p>";
+        return;
+    }
 
     resultsHeading.style.display = "block";
     portfolioAreas.style.display = "none";
-
-    resultsContainer.innerHTML =
-        "<p>No matching content found.</p>";
-
-    return;
-}
-    
-resultsHeading.style.display = "block";
-portfolioAreas.style.display = "none";
 
     matches.forEach(item => {
         // Safe fallbacks
@@ -143,7 +135,7 @@ portfolioAreas.style.display = "none";
         const title = item.title || '';
         const description = item.description || '';
 
-        // Clean HTML Template String (only backticks at the very start and end!)
+        // Clean HTML Template String
         resultsContainer.innerHTML += `
             <a href="${link}" class="card-link">
                 <div class="card-title">
