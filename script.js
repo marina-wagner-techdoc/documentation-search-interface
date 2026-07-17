@@ -132,13 +132,13 @@ searchInput.addEventListener("keyup", () => {
         }
         
         return titleMatch || descriptionMatch || keywordsMatch;
-    }); // This correctly closes ONLY the filter method
+    });
 
     if (matches.length === 0) {
         resultsHeading.style.display = "block";
         portfolioAreas.style.display = "none";
         resultsContainer.innerHTML = "<p>No matching content found.</p>";
-        return; 
+        return;
     }
 
     resultsHeading.style.display = "block";
@@ -165,3 +165,4 @@ searchInput.addEventListener("keyup", () => {
         `;
     });
 });
+
